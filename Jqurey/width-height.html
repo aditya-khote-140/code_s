@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Width & Heigth method</title>
+    <style>
+        body{
+            font-family:arial;
+        }
+        h1{
+            font-size: 25px;
+        }
+        #box{
+            border:10px solid black;
+            padding:30px;
+            background-color: aquamarine;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>jquery width() Height () methods</h1>
+    <div id="box">
+        <h2>test box</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, asperiores fugiat consequuntur atque, fuga explicabo illo commodi deleniti aliquid reprehenderit suscipit nemo accusantium, similique perspiciatis iusto! Officiis eveniet molestiae voluptas ab libero voluptates voluptate modi ut similique consequuntur. Voluptates maiores, alias maxime culpa, quis in tempore porro rerum voluptatum eaque explicabo veniam dolore recusandae? Quas!</p>
+    </div>
+    <br><br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button id="width">width</button>
+    <button id="height">Height</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#width").click(function(){
+                console.clear();
+                console.log("Width : " + $("#box").width());
+                console.log("InnerWidth : " + $("#box").innerWidth());
+                console.log("outerWidth : " + $("#box").outerWidth());
+                console.log("outerWidth true: " + $("#box").outerWidth(true));
+            });
+                // for height 
+                $("#height").click(function(){
+                    console.clear();
+                console.log("Height : " + $("#box").height());
+                console.log("InnerHeight : " + $("#box").innerHeight());
+                console.log("outerHeight : " + $("#box").outerHeight());
+                console.log("outerHeight true: " + $("#box").outerHeight(true));
+            });
+       
+        });
+    </script>
+</body>
+</html>

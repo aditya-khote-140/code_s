@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide show</title>
+    <style>
+        body{
+            font-family:arial;
+        }
+        #box{
+            background-color:limegreen;
+            padding:10px;
+            border:2px solid black;
+        }
+        #fadein ,#fadeout,#fadetoggle,#fadeto{
+            width:170px;
+            height:50px;
+            font-size:30px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Fade show</h1>
+    <div id="box" class="box">
+        <h2>Test box</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex harum, consequuntur placeat reiciendis dolorum nemo perspiciatis quos illum sint quidem tempore iste fuga nobis quibusdam sunt mollitia ratione minus laborum unde veniam inventore ut similique. Quibusdam molestias recusandae quis, cum vitae nesciunt, ipsam excepturi sed minus laboriosam eveniet sunt architecto commodi fugit? Necessitatibus quam, consequatur dignissimos ut possimus rem eius quibusdam saepe sed, assumenda expedita mollitia ullam, vel quasi perspiciatis odio incidunt praesentium laboriosam repellendus id non et voluptatibus? Hic vel, obcaecati reprehenderit quidem nihil fuga sapiente ipsum libero perspiciatis inventore, placeat minus labore omnis cumque voluptate dolorum aut accusantium.</p>
+    </div>
+    <br><br><br>
+    <button id="fadein">FadeIn</button>
+    <button id="fadeout">FadeOut</button>
+    <button id="fadetoggle">FadeToggle</button>
+    <button id="fadeto">FadeTo</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+             $("#fadein").click(function(){
+                $("#box").fadeIn(3000);
+             });
+             //for fadeout
+             $("#fadeout").click(function(){
+                $("#box").fadeOut(3000);
+             });
+             // for fadetoggle
+             $("#fadetoggle").click(function(){
+                $("#box").fadeToggle(3000);
+             });
+             // for fadeTo
+             $("#fadeto").click(function(){
+                $("#box").fadeTo(2000,0.1);
+             });
+        
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide show</title>
+    <style>
+        body{
+            font-family:arial;
+        }
+        #box{
+            background-color:limegreen;
+            padding:10px;
+            border:2px solid black;
+        }
+        #hide ,#show,#toggle{
+            width:150px;
+            height:50px;
+            font-size:30px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Hide show</h1>
+    <div id="box" class="box">
+        <h2>Test box</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex harum, consequuntur placeat reiciendis dolorum nemo perspiciatis quos illum sint quidem tempore iste fuga nobis quibusdam sunt mollitia ratione minus laborum unde veniam inventore ut similique. Quibusdam molestias recusandae quis, cum vitae nesciunt, ipsam excepturi sed minus laboriosam eveniet sunt architecto commodi fugit? Necessitatibus quam, consequatur dignissimos ut possimus rem eius quibusdam saepe sed, assumenda expedita mollitia ullam, vel quasi perspiciatis odio incidunt praesentium laboriosam repellendus id non et voluptatibus? Hic vel, obcaecati reprehenderit quidem nihil fuga sapiente ipsum libero perspiciatis inventore, placeat minus labore omnis cumque voluptate dolorum aut accusantium.</p>
+    </div>
+    <br><br><br>
+    <button id="hide">Hide</button>
+    <button id="show">show</button>
+    <button id="toggle">Toggle</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+        // function task pura hone ke baad print karega.
+        function call(){
+            console.clear();
+            console.log("now done")
+        }
+
+        $(document).ready(function(){
+            // for hide
+            $("#hide").click(function(){
+                $("#box").hide(1000,call); 
+            });
+            // for show
+            $("#show").click(function(){
+                $("#box").show(1000,call);
+        });
+        // for toggle
+        $("#toggle").click(function(){
+                $("#box").toggle(1000,call);
+        });
+        
+    });
+    </script>
+</body>
+</html>

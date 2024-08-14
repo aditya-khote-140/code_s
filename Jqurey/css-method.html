@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css method</title>
+    <style>
+        body{
+            font-family:arial;
+        }
+        #box{
+            border:1px solid black;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>jquery css methods</h1>
+    <div id="box">
+        <h2>test box</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, asperiores fugiat consequuntur atque, fuga explicabo illo commodi deleniti aliquid reprehenderit suscipit nemo accusantium, similique perspiciatis iusto! Officiis eveniet molestiae voluptas ab libero voluptates voluptate modi ut similique consequuntur. Voluptates maiores, alias maxime culpa, quis in tempore porro rerum voluptatum eaque explicabo veniam dolore recusandae? Quas!</p>
+    </div>
+    <br><br>
+    <button id="addstyle">Add style</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $('#addstyle').click(function() {
+                // for one css property 
+                $('#box').css('background-color','#797AE8');
+
+                // for multiple css property in one line 
+                $('#box').css({'background-color':'#797AE8','font-family':'monospace','font-size':'20px'});
+        });
+    });
+    </script>
+</body>
+</html>

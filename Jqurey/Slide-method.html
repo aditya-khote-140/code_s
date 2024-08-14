@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide method</title>
+    <style>
+        body{
+            font-family:arial;
+        }
+        #box{
+            padding:10px;
+            border: 2px solid black;
+            background-color:tan;
+        }
+        #slidedown,#slideup,#slidetoggle{
+            width:200px;
+            height:40px;
+            font-size: 20px;
+            background-color:whitesmoke;
+            align-items:center;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Slide methods</h1>
+    <div id="box" class="box">
+        <h2>Test box</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ipsam eveniet saepe aliquid. Officiis omnis unde sapiente consequuntur ex reiciendis corrupti vero maxime quos similique laudantium aut itaque quibusdam, tempora delectus rerum. Ad ipsam delectus dolorem esse rem labore sapiente illum quisquam nesciunt nostrum. Expedita quis aperiam distinctio quam earum nihil pariatur fugiat aut culpa sint! Accusamus voluptatum nobis, soluta consectetur dolorum omnis libero aspernatur dolore tempora officiis quos iure sit quod adipisci laborum voluptatem corrupti iusto maiores vel harum optio earum. Ut odit perspiciatis exercitationem ratione? Magnam, rem velit molestias nihil quidem ex blanditiis rerum et corporis distinctio eaque.</p>
+    </div>
+    <br><br><br>
+    <button id="slidedown">SlideDown</button>
+    <button id="slideup">SlideUP</button>
+    <button id="slidetoggle">slidetoggle</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+        
+            // for slide down
+            $("#slidedown").click(function(){
+                $("#box").slideDown(1000);
+            });
+        
+            // for slide up
+            $("#slideup").click(function(){
+                $("#box").slideUp(1000);
+            });
+            
+            // for toggle slide  
+            $("#slidetoggle").click(function(){
+                $("#box").slideToggle(1000);
+            });
+        });
+        </script>
+<script>
+        $(documnet).ready(function(){
+
+            // for slide down
+            $("#slidedown").click(function(){
+                $("#box").slideDown(1000, function(){
+                    console.log("slide down");
+                });
+            });
+
+            // for slide up
+            $("#slideup").click(function(){
+                $("#box").slideUp(1000);
+            });
+            
+            // for toggle slide  
+            $("#slidetoggle").click(function(){
+                $("#box").slideToggle(1000);
+            });
+        });
+    </script>        
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1 id="demo"></h1>
+
+<script>
+function renderApp() {
+  document.getElementById("demo").innerHTML = "Welcome!  this is if condition : ";
+}
+
+function renderLogin() {
+  document.getElementById("demo").innerHTML = "Please log in this is else condition : ";
+}
+
+let allow = 1;
+
+// if (allow == 1) {
+//   renderApp();
+// } else {
+//   renderLogin();
+// }
+
+
+// if (allow == 0){ renderApp()} else {renderLogin();}
+allow == 0 ? renderApp() : renderLogin();
+</script>
+
+</body>
+</html>

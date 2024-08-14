@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A+B Whole sq</title>
+    <!-- write a js code for a+b whole sq -->
+</head>
+<body>
+    <script>
+function squareOfSum(a, b) {
+    var sum = a + b;
+    var square = sum ** 2;
+    return square;
+}
+
+var a = parseInt(prompt("Enter the value of a: "));
+var b = parseInt(prompt("Enter the value of b: "));
+
+const result = squareOfSum(a, b);
+
+document.writeln(" Result is :" + (result));
+    </script>
+</body>
+</html>

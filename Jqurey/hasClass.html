@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hasClass </title>
+    <style>
+        body{
+            font-family:arial;
+        }
+        #box{
+            background-color: aqua;
+            padding:10px;
+            border:10px solid red;
+        }
+        #hasclass{
+            width:300px;
+            height:100px;
+            display:grid;
+            margin: 0 auto;
+            font-size:25px;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery hasClass</h1>
+    <div id="box">
+        <h2>Test box</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, sequi nesciunt iusto nihil sunt adipisci tenetur quae amet saepe voluptatibus tempora perspiciatis architecto aliquam unde blanditiis asperiores minima deleniti. Animi, corrupti odio inventore aperiam similique eligendi alias iste numquam sunt, nisi ex? Consequuntur iusto nam illo dolorem eum maxime nemo. Laudantium, exercitationem! Sint rem dolore non vero nulla porro, doloremque possimus iste eos aliquam molestiae iusto, commodi quia hic quasi blanditiis? Sunt quas perspiciatis debitis alias a expedita temporibus perferendis. Quos magnam distinctio ipsa repellat ratione eum voluptas numquam, veritatis quae quo veniam, officiis eaque voluptatem iure ullam. Eveniet, numquam!</p>
+    </div>
+    <br><br>
+    <button id="hasclass">hasClass</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("#hasclass").click(function () {
+                document.write($("#box").hasClass("test"));
+            });
+        });
+    </script>
+</body>
+</html>

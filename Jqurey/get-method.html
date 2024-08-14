@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get-method</title>
+    <style>
+        body{
+            font-family:arial;
+        }
+        #box{
+            background-color:tan;
+            padding:10px;
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>get-method</h1>
+    <div id="box" class="test abc">
+        <h2>Test Box</h2>
+        <p>Lorem ipsum  sit amet consectetur adipisicing elit. Suscipit commodi qui beatae. Quod soluta tempora vitae ullam molestias cumque autem tenetur delectus, vero explicabo eos optio nisi perspiciatis numquam earum?</p>
+    </div>
+
+    <!-- For val () Method -->
+    <div>
+        <h1>jquery get methods</h1>
+        <form action="" id="sform">
+            <label for="">Name</label>
+            <input type="text" id="sname"> <br>
+            <label for="">Class</label>
+            <input type="text" id="sclass">
+            <br>
+            <label for="">Country</label>
+            <select id="scountry">
+                <option value="India">India</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="UK">UK</option>
+                <option value="Sri lanka">Sri Lanka</option>
+                <option value="Nepal">Nepal</option>
+            </select>
+            <br><br>
+            <input type="submit">
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous">
+    </script>
+    <script>
+        // for html() method 
+        $(document).ready(function () {
+        var a = $('body').html();
+        console.log(a);
+
+        // for text () method
+        var a = $('#box').text();
+        console.log(a);
+
+        // for attr () method
+        var a = $('#box').attr('class');
+        console.log(a);
+
+        // for val () method
+        $('#sform').submit(function(){
+            var name = $('#sname').val();
+            var classname = $ ('#sclass').val();
+            var Country = $ ('#scountry').val();
+            alert("Name : "+ name +" Class : " + classname + "Country : " + Country);
+        });
+        });
+    </script>
+</body>
+</html>

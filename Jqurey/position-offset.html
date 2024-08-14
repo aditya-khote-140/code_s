@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position & offset</title>
+    <style>
+        body{
+            font-family:arial;
+        }
+        #box{
+            border:3px solid black;
+            padding:10px;
+            background-color: tan;
+        }
+        #position , #offset{
+            width:300px;
+            height:70px;
+            display:block;;
+            margin:0 auto;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery position & offset</h1>
+    <div id="box">
+        <h2>Test Area</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem nulla vel laboriosam laudantium placeat esse qui voluptate voluptatibus cupiditate, reiciendis atque! Repudiandae doloribus fugit omnis maiores dolorum placeat, error id, atque odio, animi aliquid cumque impedit? Nemo, voluptatem voluptates? Mollitia repellendus debitis quo nihil nam fugiat aspernatur soluta, velit autem sunt ab possimus laborum perspiciatis?</p>
+    </div>
+    <br><br><br>
+    <button id="position">Position</button>
+    <br><br><br>
+    <button id="offset">Offset</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            console.clear();
+            $("#position").click(function () {
+                var a = $("#box h2").position();
+                console.log(" Top : " + a.top + " Left : " + a.left);
+        });
+        // for offset
+        $("#offset").click(function(){
+            console.clear();
+            var b = $("#box h2").offset();
+            console.log(b);
+        });
+    });
+    </script>
+</body>
+</html>
