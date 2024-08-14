@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart</title>
+    <style>
+        body {
+  background-color:#FFF;
+  overflow: hidden;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container{
+  position:absolute;
+  max-width:100%;
+  
+}
+
+svg{
+  width:100%;
+  height:100%;
+  visibility:hidden;
+ 
+}
+
+.heart{
+  cursor:pointer;
+}
+
+    </style>
+</head>
+<body>
+    
+  <svg class="heartSVG" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 600 600">
+    <defs>
+
+<path id="paper" d="M8.871,18.001c-0.157,0-0.316-0.015-0.477-0.046c-2.064-0.398-3.886-1.318-5.268-2.661	C-0.197,12.067-0.94,6.663,1.231,1.527c0.538-1.271,2.004-1.866,3.276-1.329C5.78,0.736,6.374,2.203,5.837,3.474	c-1.342,3.173-1.031,6.481,0.772,8.233c0.692,0.672,1.611,1.123,2.732,1.339c1.355,0.261,2.243,1.572,1.981,2.928
+	C11.092,17.17,10.044,18.001,8.871,18.001z"/>
+<path id="ring" d="M9.344,18.688C4.191,18.688,0,14.496,0,9.344S4.191,0,9.344,0s9.344,4.191,9.344,9.344
+	S14.496,18.688,9.344,18.688z M9.344,3C5.846,3,3,5.846,3,9.344s2.846,6.344,6.344,6.344s6.344-2.846,6.344-6.344S12.842,3,9.344,3z
+	"/>   
+<polygon id="star" points="17.365,18.587 10.846,15.88 4.92,19.716 5.48,12.679 0,8.229 6.865,6.587 9.405,0 
+	13.088,6.022 20.137,6.401 15.548,11.765 "/>          
+<polygon id="diamond" fill="#B400AC" points="6.444,17.442 0,8.721 6.444,0 12.888,8.721 "/>
+    </defs>
+<g class="heartLines" stroke-width="3" fill="none" >
+	<line stroke="#98D4F8" stroke-miterlimit="10" x1="71" y1="71" x2="71" y2="0"/>
+	<line stroke="#CA90F2" stroke-miterlimit="10" x1="71" y1="71" x2="121.205" y2="20.795"/>
+	<line stroke="#94EFC6" stroke-miterlimit="10" x1="71" y1="71" x2="142" y2="71"/>
+	<line stroke="#F9DB96" stroke-miterlimit="10" x1="71" y1="71" x2="121.205" y2="121.205"/>
+	<line stroke="#98D4F8" stroke-miterlimit="10" x1="71" y1="71" x2="71" y2="142"/>
+	<line stroke="#CA90F2" stroke-miterlimit="10" x1="71" y1="71" x2="20.795" y2="121.205"/>
+	<line stroke="#94EFC6" stroke-miterlimit="10" x1="71" y1="71" x2="0" y2="71"/>
+	<line stroke="#F9DB96" stroke-miterlimit="10" x1="71" y1="71" x2="20.795" y2="20.795"/>
+</g>
+   
+   <g class="pContainer">
+    </g>
+<path class="heart" fill="#ABB9C2"  d="M318.2,259.5c-7.5,0-14.2,3.7-18.2,9.5c-4-5.7-10.7-9.5-18.2-9.5
+	c-12.3,0-22.3,10-22.3,22.3c0,30.4,31.6,58.7,40.5,58.7s40.5-28.4,40.5-58.7C340.5,269.5,330.5,259.5,318.2,259.5z"/>  
+  </svg>
+<script>
+    var xmlns = "http://www.w3.org/2000/svg",
+  xlinkns = "http://www.w3.org/1999/xlink",
+  select = function(s) {
+    return document.querySelector(s);
+  },
+  selectAll = function(s) {
+    return document.querySelectorAll(s);
+  },
+  pContainer = select('.pContainer'),
+  heart = select('.heart'),
+  heartSVG = select('.heartSVG'),
+  heartLines = select('.heartLines'),
+  allHeartLines = selectAll('.heartLines line'),
+  maxParticlePool = 100,
+  particleArr = [],
+  heartLinePoolArr = [],
+  heartArr = [],
+  heartTl = new TimelineMax({paused:true, onComplete:function(){
+    this.seek(0);
+    this.pause();
+  }}),
+  heartTimelineArr = [],
+  heartLineClonesTl = new TimelineMax({paused:true}),
+  heartCount = 0,
+  particleType = [
+    {element:'#paper', weight:1.8},
+    {element:'#star', weight:2.1}, 
+    {element:'#diamond', weight:1.7},
+    {element:'#ring', weight:2.3}
+  ],
+particleColorArray = ['#34A3F2','#B400AC', '#88E259','#F75E19', '#39C5C0', '#E3004D'],
+  myDataObj = {
+
+    gravity: 60,
+    gravityMax: 100,
+
+    velocity: 230,
+    velocityMax: 800,
+
+    alpha: 1,
+    alphaMax: 1,
+
+    angle: 0,
+    angleMax: 360,
+
+    rotation: 720,
+    rotationMax: 1000,
+
+    particles: 20,
+    particlesMax: 500,
+
+    duration: 2.7,
+    durationMax: 10,
+
+    skewx: 0,
+    skewxMax: 2280,
+
+    skewy: 360,
+    skewyMax: 2280,
+    
+    time: 3,
+    timeMax: 4
+  },
+  tl = new TimelineMax({
+  repeat: 0
+});
+
+
+TweenMax.set('svg', {
+  visibility: 'visible'
+})
+TweenMax.set(heart, {
+  transformOrigin:'50% 50%',
+  scale:0.8
+})
+TweenMax.set(heartLines, {
+  transformOrigin:'50% 50%',
+  x:230,
+  y:230
+})
+TweenMax.set(allHeartLines, {
+  drawSVG:'0% 35%'
+})
+
+function createHeartLinePool(){
+  
+  for(var i = 0; i < 5; i++){
+    
+    var hl = heartLines.cloneNode(true);
+    var lines = hl.querySelectorAll('line');
+    pContainer.appendChild(hl);
+    //heartLinePoolArr
+    TweenMax.set(hl, {
+      x:randomBetween(190,280),
+      y:randomBetween(100,190),
+      scale:0.5,
+      transformOrigin:'50% 50%'
+    })
+    TweenMax.set(lines, {
+      drawSVG:'0% 0%',
+      immediateRender:true
+    })    
+    var tl = new TimelineMax({paused:true});
+    tl.to(lines, 0.2, {
+      drawSVG:'10% 30%',
+      ease:Linear.easeNone
+    })
+    .to(lines, 0.4, {
+      drawSVG:'100% 100%',
+      ease:Linear.easeNone
+    })
+    heartLineClonesTl.add(tl, i/8)
+    
+  }
+}
+
+function createParticlePool() {
+  var i = maxParticlePool, p, tl;
+  while (--i > -1) {
+    p = document.createElementNS(xmlns, 'use');
+    heartSVG.appendChild(p);
+    p.setAttributeNS(null, 'fill', particleColorArray[randomBetween(0, particleColorArray.length - 1)]);
+    //p.setAttributeNS(null, 'stroke', '#FFF');
+    p.setAttributeNS(xlinkns, "xlink:href", particleType[randomBetween(0, particleType.length-1)].element);
+    TweenMax.set(p, {
+      scale:0,
+      transformOrigin: '50% 50%'
+    })   
+   
+  }//end while
+  
+    heartTl.to(heart, 0.2, {
+      y:-100,
+      ease:Power1.easeOut
+    })
+    .to(heart, 0.2, {
+      fill:'#E00050',
+      ease:Power1.easeIn
+    },'-=0.2')
+    .to(allHeartLines, 0.6, {
+      drawSVG:'100% 100%'
+    },'-=0.2')
+    .to(heart, 0.4, {
+      y:0,
+      ease:Back.easeOut
+    },'-=0.4')
+    .addPause()
+    .to(heart, 0.2, {
+      fill:'#ABB9C2'
+    }) 
+}
+
+
+function createParticles() {
+
+  var i = myDataObj.particles, p, particleObj;
+  while (--i > -1) {
+    
+    particleObj = particleType[randomBetween(0, particleType.length-1)];
+    p = document.createElementNS(xmlns, 'use');
+    pContainer.appendChild(p);
+
+    p.setAttributeNS(null, 'fill', particleColorArray[randomBetween(0, particleColorArray.length - 1)])
+    p.setAttributeNS(xlinkns, "xlink:href", particleObj.element);
+    p.setAttribute('scale', randomBetween(3, 8) / 10)
+    p.setAttribute('weight', particleObj.weight);
+    particleArr.push(p);
+    TweenMax.set(p, {
+      transformOrigin: '50% 50%',
+      y:-40 
+    })  
+  }
+}
+
+function createExplosion() {
+
+  if (myDataObj.duration < 0.5) {
+
+    myDataObj.duration = 0.5;
+  }
+
+  var i = myDataObj.particles,
+    p, pCount = 0;
+  tl.clear();
+
+  while (--i > -1) {
+    p = particleArr[i];
+    TweenMax.set(p, {
+      scale: p.getAttribute('scale'),
+      x: 310,
+      y: 220,
+      alpha: myDataObj.alpha
+    })
+    var t = TweenMax.to(p, randomBetween(0.1, myDataObj.duration), {
+      physics2D: {
+        velocity: randomBetween(myDataObj.velocity/2, myDataObj.velocity),
+        angle: randomBetween(-110, -80),
+        gravity: p.getAttribute('weight') * myDataObj.gravity
+        
+      },
+      //alpha: 0,
+      rotation: randomBetween(0, myDataObj.rotationMax),
+      skewX: randomBetween(0, myDataObj.skewx),
+      skewY: randomBetween(0, myDataObj.skewy),
+      //scale:0.5,
+      //ease: Expo.easeOut,
+      ease: Sine.easeInOut,
+      //ease:SlowMo.ease.config(0., 1, false),
+      onComplete: function(p) {
+      
+        TweenMax.set(p, {
+          x:-20,
+          y:-20
+        })
+
+      },
+      onCompleteParams: [p]
+    });
+
+    tl.add(t, 0)
+  } //end while
+  
+  tl.timeScale(myDataObj.time);
+  
+
+}
+
+function resetHeartLineClones(){
+  
+  for(var i = 0; i < heartLineClonesTl.getChildren(true, false, true).length; i++){
+    var tl = heartLineClonesTl.getChildren(true, false, true)[i];
+    tl.restart()
+  }
+}
+
+function randomBetween(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+createParticlePool();
+createParticles();
+createHeartLinePool();
+heart.onclick = function(){
+  heartTl.play();
+  
+
+  if(heartTl.time() > 0){
+    return;
+  }
+  TweenMax.delayedCall(0.3, function(){
+    resetHeartLineClones();
+    heartLineClonesTl.restart();
+  })  
+  createExplosion();
+}
+
+</script>
+
+</body>
+</html>

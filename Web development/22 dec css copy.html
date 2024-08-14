@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Animation </title>
+    <style>
+        .box{
+            width: 200px;
+            height:100px;
+            background-color: aquamarine;
+            animation: anim 4s infinite;
+            display: grid;
+            place-items:center;
+            margin: 0 auto;
+        }
+       
+        @keyframes anim{
+            0%   {background-color:red; margin-left:0px; margin-top:0px;}
+            25%  {background-color:yellow; margin-left:400px; margin-top:0px;}
+            50%  {background-color:blue; margin-left:400px; margin-top:400px;}
+            75%  {background-color:green; margin-left:0px; margin-top:400px;}
+            100% {background-color:red; margin-left:0px; margin-top:0px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Aditya</h2>
+    </div>
+</body>
+</html>

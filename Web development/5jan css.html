@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            background-image:linear-gradient(rgb(201, 89, 89),rgb(157, 213, 213),rgb(190, 190, 89));
+        }
+    .container{
+        padding-top:3in;
+            width: fit-content;
+            margin: 0 auto;
+        }
+        .grid-container{
+            display: grid;
+            grid-template-columns: 200px 200px 200px 200px 200px;
+            grid-column-gap:20px;
+            grid-row-gap:20px;
+        }
+        .grid-item{
+            padding:20px;
+            background-color:bisque;
+            color:#000000;
+            border:2px solid #000000;
+            font-size:30px;
+            font-weight:bold;
+            text-align: center;
+        }
+        
+         
+    </style>
+    <title>grid-columns-gap</title>
+</head>
+<body>
+    <div class="container">
+     <div class="grid-container">
+        <div class="grid-item" style="background-color:rgb(147, 88, 169)">Front end Web development</div>
+        <div class="grid-item" style="background-color:rgb(127, 107, 57)">Back end web development</div>
+        <div class="grid-item" style="background-color:rgb(64, 45, 106)">Java</div>
+        <div class="grid-item" style="background-color:rgb(77, 112, 112)">Python</div>
+        <div class="grid-item" style="background-color:rgb(100, 45, 47)">'O' Level</div>
+     </div>
+    </div>
+</body>
+</html>

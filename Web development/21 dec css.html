@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Animation </title>
+    <style>
+        .box{
+            width: 200px;
+            height:100px;
+            background-color: aquamarine;
+            animation: anim 2s infinite;
+            display: grid;
+            place-items:center;
+            margin: 0 auto;
+        }
+       
+        @keyframes anim{
+            0%{background-color: yellow; margin-left: 0px; transform: rotate(0deg);}
+            100%{background-color: blueviolet; margin-left:700px; transform: rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Aditya</h2>
+    </div>
+</body>
+</html>

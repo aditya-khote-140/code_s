@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exploding Gift Box</title>
+  <style>
+     .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.gift-box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+  animation: shake 0.8s infinite;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  perspective: 800px;
+}
+
+.lid {
+  width: 100%;
+  height: 50%;
+  background-color: #f8c82a;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5px 5px 0 0;
+  transform-origin: top;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.box {
+  width: 100%;
+  height: 50%;
+  background-color: #f8c82a;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-radius: 0 0 5px 5px;
+  transform-origin: bottom;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.ribbon {
+  width: 80px;
+  height: 20px;
+  background-color: #ff6384;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.confetti {
+  width: 100%;
+  height: 100%;
+  background-image: url('confetti.png');
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: confetti-blast 1s infinite;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+.popup-content {
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes shake {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0); }
+}
+
+@keyframes confetti-blast {
+  0% { opacity: 0; transform: translateY(-100%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+</head>
+<body> 
+      <div class="container">
+    <div class="gift-box" onclick="openBox()">
+      <div class="ribbon"></div>
+      <div class="lid"></div>
+      <div class="box">
+        <div class="confetti"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>Happy Birthday!</h2>
+      <p>Wishing you a day filled with joy and laughter.</p>
+    </div>
+  </div>
+<!-- Scripts -->
+  <script>
+    function explode() {
+  document.querySelector('.gift-box').classList.add('explode');
+  document.getElementById('popup').style.display = 'block';
+}
+  </script>
+</body>
+</html>
